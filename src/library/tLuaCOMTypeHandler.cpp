@@ -455,6 +455,8 @@ tLuaCOM *tLuaCOMTypeHandler::convert_table(lua_State *L, stkIndex luaval)
 */
 void tLuaCOMTypeHandler::lua2com(lua_State* L, stkIndex luaval, VARIANTARG& varg, VARTYPE type)
 {
+  LUASTACK_SET(L);
+
   CHECKPARAM(luaval > 0);
 
   VariantClear(&varg);
@@ -685,6 +687,7 @@ void tLuaCOMTypeHandler::lua2com(lua_State* L, stkIndex luaval, VARIANTARG& varg
     TYPECONV_ERROR("No Lua value to convert.");
     break;
   }
+  LUASTACK_DOCLEAN(L, 0);
 }
 
 /**
