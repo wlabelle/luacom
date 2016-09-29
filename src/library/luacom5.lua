@@ -999,5 +999,3 @@ function luacomE.NewLibrary(attributes)
   setmetatable(newlibrary, newlibrary)
   return newlibrary
 end
-
-return luacomE

@@ -38,7 +38,8 @@ extern "C" {
 
 extern "C" int luacom_openlib(lua_State* L) {
   luacom_open(L);
-  return 0;
+  lua_getglobal(L, LIBNAME);
+  return 1;
 }
 
 extern "C" int luaopen_luacom(lua_State* L) {
