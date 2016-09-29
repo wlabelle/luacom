@@ -1,7 +1,8 @@
 package = "LuaCOM"
-version = "scm-2"
+version = "scm.moteus-1"
 source = {
-   url = "git://github.com/davidm/luacom.git"
+  url = "https://github.com/moteus/luacom/archive/master.zip",
+  dir = "luacom-master",
 }
 description = {
    summary = "Use COM libraries from Lua",
