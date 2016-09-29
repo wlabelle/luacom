@@ -21,7 +21,16 @@ extern "C"
 
 #define MAX_VALID_STRING_SIZE 1000
 
-UINT code_page=CP_UTF8;		// Set UTF-8 as default code page
+// https://github.com/windtail/luacom/commit/3852e47c2f0fe77477cbde54541228cd2f7b8901
+// - in none-english environment (i am Chinese) we DO NOT use CP_UTF8, CP_ACP should be used
+// - while Cygwin default convert filename internally to UTF-8
+// - we have to use ASCII format for our lua source code, if you prefer UTF-8, you need luaiconv to convert UTF-8 to your ASCII format (GBK or other)
+#ifdef __CYGWIN__
+UINT code_page=CP_UTF8; // By default, Cygwin internally convert filename to UTF-8
+#else
+UINT code_page=CP_ACP;
+#endif
+
 FILE* tUtil::log_file = NULL;
 CRITICAL_SECTION log_file_cs;
 volatile bool g_log_file_cs_initialized = false;
