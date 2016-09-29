@@ -15,19 +15,19 @@ dependencies = {
 }
 build = {
    platforms = {
-     win32 = {
-        type = "make",
-       	build_variables = {
-         LUA_LIBDLL = "$(LUA_LIBDIR)",
-	 LUA_INC = "$(LUA_INCDIR)",
-         LUA = "$(LUA)",
-         LUA_LIBSDLL = "$(LUA_LIB)"
-       	},
-        build_target = "lc_dll",
-       	install_variables = {
-         LUA_LIBDIR = "$(LIBDIR)",
-       	}
-     }
-  }
+      win32 = {
+         type = "make",
+         build_variables = {
+            LUA_LIBDLL = "$(LUA_LIBDIR)",
+            LUA_INC = "$(LUA_INCDIR)",
+            LUA = "$(LUA)",
+            LUA_LIBSDLL = "$(LUA_LIB)"
+         },
+         build_target = "lc_dll",
+            install_variables = {
+            LUA_LIBDIR = "$(LIBDIR)",
+         }
+      }
+   }
 }
 

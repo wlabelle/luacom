@@ -15,20 +15,21 @@ dependencies = {
 }
 build = {
    platforms = {
-     win32 = {
-        type = "make",
-       	build_variables = {
-         LUA_LIBDLL = "$(LUA_LIBDIR)",
-	 LUA_INC = "$(LUA_INCDIR)",
-         LUA = "$(LUA_LIBDIR)\\lua5.1.exe",
-         LUAC = "$(LUA_LIBDIR)\\luac5.1.exe",
-         BIN2C = "$(LUA_LIBDIR)\\bin2c5.1.exe"
-       	},
-        build_target = "lc_dll",
-       	install_variables = {
-         LUA_LIBDIR = "$(LIBDIR)",
-       	}
-     }
-  }
+      win32 = {
+         type = "make",
+         build_variables = {
+            CFLAGS     = "$(CFLAGS)",
+            LIBFLAG    = "$(LIBFLAG)",
+            LUA_LIBDIR = "$(LUA_LIBDIR)",
+            LUA_BINDIR = "$(LUA_BINDIR)",
+            LUA_INCDIR = "$(LUA_INCDIR)",
+            LUALIB     = "$(LUALIB)",
+            LUA        = "$(LUA_BINDIR)\\$(LUA_INTERPRETER)",
+         },
+         build_target = "lc_dll",
+         install_variables = {
+            LUA_LIBDIR = "$(LIBDIR)",
+         }
+      }
+   }
 }
-
