@@ -2133,7 +2133,7 @@ static int luacom_GetCodepage(lua_State *L) {
 
 // https://msdn.microsoft.com/de-de/library/windows/desktop/dd317756%28v=vs.85%29.aspx
 static int luacom_SetCodepage(lua_State *L) {
-  code_page=(UINT)luaL_checklong(L, 1);
+  code_page=(UINT)luaL_checknumber(L, 1);
   return 0;
 }
 
