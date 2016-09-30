@@ -2127,13 +2127,13 @@ static int luacom_RoundTrip(lua_State *L) {
 
 
 static int luacom_GetCodepage(lua_State *L) {
-  lua_pushnumber(L, code_page);  
+  lua_pushinteger(L, code_page);  
   return 1;  /* number of results */
 }
 
 // https://msdn.microsoft.com/de-de/library/windows/desktop/dd317756%28v=vs.85%29.aspx
 static int luacom_SetCodepage(lua_State *L) {
-  code_page=(UINT)luaL_checknumber(L, 1);
+  code_page=(UINT)luaL_checkinteger(L, 1);
   return 0;
 }
 
