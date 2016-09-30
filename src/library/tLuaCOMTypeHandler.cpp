@@ -1457,7 +1457,7 @@ void tLuaCOMTypeHandler::safearray_lua2com(lua_State* L,
   // initialize dimensions
   for(i = 0; i < dimensions; i++)
   {
-    bounds[dimensions - i - 1].lLbound = 1;
+    bounds[dimensions - i - 1].lLbound = 0;
     bounds[dimensions - i - 1].cElements = luavector.get_Nth_Dimension(dimensions - i);
   }
 
@@ -1477,7 +1477,7 @@ void tLuaCOMTypeHandler::safearray_lua2com(lua_State* L,
     for(i = 0; i < dimensions; i++)
       indices[i] = bounds[i].lLbound;
 
-    unsigned long dimension = indices[0] - 1;
+    unsigned long dimension = indices[0];
     // copy elements one-by-one
     do
     {
