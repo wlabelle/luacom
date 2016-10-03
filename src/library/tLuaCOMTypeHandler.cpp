@@ -661,7 +661,7 @@ void tLuaCOMTypeHandler::lua2com(lua_State* L, stkIndex luaval, VARIANTARG& varg
 
   case LUA_TBOOLEAN:
     varg.vt = VT_BOOL;
-    varg.boolVal = lua_toboolean(L, luaval);
+    varg.boolVal = lua_toboolean(L, luaval) ? VARIANT_TRUE : VARIANT_FALSE;
     break;
 
 
