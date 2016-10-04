@@ -25,7 +25,7 @@ build = {
             LUA_BINDIR = "$(LUA_BINDIR)",
             LUA_INCDIR = "$(LUA_INCDIR)",
             LUALIB     = "$(LUALIB)",
-            LUA        = "$(LUA_BINDIR)\\$(LUA_INTERPRETER)",
+            LUA        = "$(LUA)",
          },
          build_target = "lc_dll",
          install_variables = {
