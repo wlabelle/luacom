@@ -3,6 +3,12 @@ version: 1.5.{build}
 environment:
   matrix:
   - LUA: "lua 5.1"
+  - LUA: "lua 5.2"
+  - LUA: "lua 5.3"
+
+platform:
+  - x64
+  - x86
 
 before_build:
   - set PATH=C:\Python27\Scripts;%PATH%
@@ -14,4 +20,4 @@ build_script:
   - luarocks make luacom-scm.moteus-1.rockspec
 
 test_script:
-  - lua -lluacom -v
+  - lua -lluacom -v -e"print{}"
