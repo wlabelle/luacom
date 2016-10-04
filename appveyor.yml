@@ -1,0 +1,17 @@
+version: 1.5.{build}
+
+environment:
+  matrix:
+  - LUA: "lua 5.1"
+
+before_build:
+  - set PATH=C:\Python27\Scripts;%PATH%
+  - pip install hererocks
+  - hererocks env --%LUA% -rlatest
+  - call env\bin\activate
+
+build_script:
+  - luarocks make luacom-scm.moteus-1.rockspec
+
+test_script:
+  - lua -lluacom -v
